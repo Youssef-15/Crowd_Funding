@@ -1,0 +1,15 @@
+Title: newProj
+Details: newProj newProj newProj  newProj  newProj  newProj  newProj  
+Total Target: 123456
+Start Date: 2023-08-29 00:00:00
+End Date: 2023-08-30 00:00:00
+pro
+pro pro pro pro pro pro pro
+54321
+2023-08-30 00:00:00
+2023-08-31 00:00:00
+now
+now now now now now now now now now
+56789
+2023-08-30 00:00:00
+2023-08-31 00:00:00
