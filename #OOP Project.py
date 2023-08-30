@@ -114,6 +114,7 @@ class Register:
         info=info+"\n"
         file1.write(info)
         file1.close()
+
     def signin(self):
         while True:
             email = input("Please, Enter Your Email: \n")

@@ -8,6 +8,7 @@ print("------------Project------------")
 #root.geometry("500x500")
 #root.title("My App")root.config()
 file1 = open("Project.txt", "a")
+date1 = r'^\d{2}/\d{2}/\d{4}$'
 class Project:
     title = ""
     details = ""
@@ -77,52 +78,83 @@ class View_Project(Project):
 
 class Search(Project):
     def search(self):
-        print("Search by:")
-        print("1- Title")
-        print("2- Date")
-        choice = input("Choose 1 or 2: ")
-        if choice == "1":
-            while True:
-                project_title = input("Enter the Title of the project you're searching for: ")
-                if project_title.isalpha():
-                    break
-                else:
-                    print("Invalid title..!")
-            readfile = open("Project.txt", "r")
-            data = readfile.readlines()
-            #print(data)
-            projects = []
-            projectsdetails = []
-            for i in data:
-                projects.append(i.strip("\n"))
-              #  x = i.index() 
-               # x += 1
-            #print("------first_try--------")
-            print (projects)
-            #x = 0
-            #for x in projects:
-             #   project = projects[x]
-                #projectsdetails = project.split(",")
-                #project.index() += 1
-            #print("------second_try--------")
-            #print(projectsdetails)
-              #  if project == project_title:
-               #     print(project)
-                #else:
-                 #   x = x+1
-                    #print("----------------Projects----------------")
-             #   print(f"{project_title}")
-              #  readfile.close()
-            #else:
-             #   print("The Project you're searching for is not found..!")
+        while True:        
+            print("Search by:")
+            print("1- Title")
+            print("2- Date")
+            choice = input("Choose 1 or 2: ")
+            if choice == "1":
+                while True:
+                    project_title = input("Enter the Title of the project you're searching for: ")
+                    if project_title.isalpha():
+                        break
+                    else:
+                        print("Invalid title..!")
+                readfile = open("Project.txt", "r")
+                data = readfile.read()
+                filelist = data.splitlines()
+                for files in filelist:
+                    start = filelist.index(files)
+                    end = start + 5
+                    if files == project_title:
+                        for x in range(start, end):
+                            print(filelist[x])
+                        readfile.close()
+            #elif choice == "2":
+             #   while True:
+              #      project_start = input("Enter the Start Date of the project you're searching for: ")
+               #     if re.match(date1, project_start):
+                #        break
+                 #   else:
+                  #      print("Invalid date..!")
+                #readfile = open("Project.txt", "r")
+                #data = readfile.read()
+                #filelist = data.splitlines()
+                #for files in filelist:
+                 #   start = filelist.index(files)
+                  #  end = start + 5
+                   # print(start, end)
+                    #if files == project_start.date():
+                     #   for x in range(start, end):
+                      #      print(filelist[x])
+                       # readfile.close()
 
-
+class Delete(Search):
+    def deleting(self):
+        while True:
+            del_file = input("Enter the name of the file you want to delete: ")
+            if del_file.isalpha():
+                break
+            else:
+                print("Invalid title..!")
+                readfile = open("Project.txt", "r")
+                data = readfile.read()
+                filelist = data.splitlines()
+                for files in filelist:
+                    start = filelist.index(files)
+                    end = start + 4
+                    if files == del_file:
+                        for x in range(start, end):
+                            writefile = open("Project.txt", "w")
+                            filelist[x]
+                            writefile.write("".join(filelist))
+                        writefile.close()
+                        readfile.close()
+            print(filelist)
+                
 #root.mainloop()
-#project = Create()
-#project.create()
-#print("---------view Mode---------")
-#view = View_Project()
-#view.reading()
+print("---------Create Mode---------")
+project = Create()
+project.create()
+print("---------view Mode---------")
+view = View_Project()
+view.reading()
 print("---------Search Mode---------")
 investigate = Search()
 investigate.search()
+print("---------Delete Mode---------")
+removing = Delete()
+removing.deleting()
+print("---------view Mode---------")
+view = View_Project()
+view.reading()
